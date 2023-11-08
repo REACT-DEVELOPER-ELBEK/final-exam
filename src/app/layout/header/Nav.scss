@@ -1,0 +1,73 @@
+nav {
+  padding: 43px 0;
+  border-bottom: 1px solid #cbcbcb;
+  .container {
+    .nav__wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .nav__main {
+        display: flex;
+        gap: 103px;
+        align-items: center;
+        .nav__logo {
+          display: flex;
+          gap: 11px;
+          align-items: center;
+          p {
+            color: #6c5fbc;
+            font-family: Poppins;
+            font-size: 21.176px;
+            font-weight: 600;
+            line-height: 130%;
+          }
+        }
+        .nav__links {
+          display: flex;
+          gap: 53px;
+          a {
+            color: #606060;
+            font-family: Inter;
+            font-size: 17.829px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 26.743px; /* 150% */
+            text-transform: capitalize;
+          }
+        }
+      }
+      .nav__actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        a{
+            &:first-child{
+                color: #606060;
+                font-size: 28px;
+                margin-right: 17px;
+            }
+            border-radius: 17.829px;
+        }
+        button {
+          color: #606060;
+          font-family: Inter;
+          font-size: 17.829px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 26.743px; /* 150% */
+          text-transform: capitalize;
+          padding: 18px 27px;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
+.signUp{
+    color: #F9F9F9;
+}
+
+.ewty{
+    background: #6C5FBC;
+    color: #fff;
+}

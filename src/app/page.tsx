@@ -1,90 +1,35 @@
-"use client";
-import { useState } from "react";
-import navLogo from "../../public/nav.svg";
+import React from "react";
+import "./Home.scss";
+import heroContent from "../../public/sign-up-right.png";
 import Image from "next/image";
-import "./routes/login/Login.scss";
-import signUpRight from "../../public/sign-up-right.png";
-import { BsPerson } from "react-icons/bs";
-import { HiOutlineMail } from "react-icons/hi";
-import { CiLock } from "react-icons/ci";
-import axios from "axios";
 
-const SignUp = () => {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-
-  function signUp() {
-    axios
-      .post(
-        "https://eatly-server.vercel.app/api/users",
-        {
-          name,
-          email,
-          password,
-        },
-        {
-          headers: {"Access-Control-Allow-Origin": "true"}
-        }
-      )
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
-  }
-
+const Home = () => {
+  const sellInfo = [
+    { count: "10k+", text: "Satisfied Costumers All Great Over The World" },
+    { count: "4M", text: "Healthy Dishes Sold Including Milk Shakes Smooth" },
+    { count: "99.99%", text: "Reliable Customer Support We Provide Great Experiences" },
+  ];
   return (
-    <div className="sign__up">
+    <div className="home">
       <div className="container">
-        <div className="sign__up__wrapper">
-          <div className="sign__up__left">
-            <Image src={navLogo} alt="" />
-
-            <div className="sign__up__fields">
-              <h1>Sign Up To eatly</h1>
-              <div className="sign__up__inputs">
-                <div className="input">
-                  <label>
-                    <BsPerson />
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="full name"
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                </div>
-
-                <div className="input">
-                  <label>
-                    <HiOutlineMail />
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="email"
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-
-                <div className="input">
-                  <label>
-                    <CiLock />
-                  </label>
-                  <input
-                    type="password"
-                    placeholder="password"
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </div>
-                <button onClick={signUp}>sign up</button>
-              </div>
-            </div>
-          </div>
-          <div className="sign__up__right">
-            <Image src={signUpRight} alt="" />
-            <h2>Find Foods With Love </h2>
+        <div className="home__wrapper">
+          <div className="home__info">
+            <h3>
+              {" "}
+              <span>-</span>OVER 1000 USERS
+            </h3>
+            <h1>
+              Enjoy Foods All Over The <span>World</span>
+            </h1>
             <p>
-              Eatly Is The Food Delivery Dashboard And Having More Than 2K+
-              Dishes Including Asian, Chinese, Italians And Many More. Our
-              Dashboard Helps You To Manage Orders And Money.
+              EatLy help you set saving goals, earn cash back offers, Go to
+              disclaimer for more details and get paychecks up to two days
+              early. Get a <span>$20 bonus</span>.
             </p>
+            <button>Get Started</button>
+          </div>
+          <div className="home__content">
+            <Image src={heroContent} alt="" />
           </div>
         </div>
       </div>
@@ -92,4 +37,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Home;
