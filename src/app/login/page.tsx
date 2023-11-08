@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import navLogo from "../../../../public/nav.svg";
+import navLogo from "../../../public/nav.svg";
 import Image from "next/image";
 import "./Login.scss";
-import signUpRight from "../../../../public/sign-up-right.png";
+import signUpRight from "../../../public/sign-up-right.png";
 import { BsPerson } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
 import { CiLock } from "react-icons/ci";
@@ -23,22 +23,22 @@ const SignUp = () => {
   };
 
   function signUp() {
-    axios;
-    // .post("https://eatly-server.vercel.app/api/users/login", {
-    //   body: { name, email, password },
-    //   headers: {
-    //     'Content-Type': 'application/x-www-form-urlencoded'
-    //   },
-    //   maxBodyLength: Infinity,
-    // })
-    // .then((res) => console.log(res))
-    // .catch((err) => console.log(err));
-    localStorage.setItem(
-      "token",
-      JSON.stringify(
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGI0YTU4OWQ4NGQzODc4MzJlYjY0NiIsImlhdCI6MTY5OTQzMzA0OCwiZXhwIjoxNzAyMDI1MDQ4fQ.Lu5unc78OBVNhznt32TVXeLFQBHklt7RNX8PRvQBX9I"
-      )
-    );
+    axios
+      .post("https://eatly-server.vercel.app/api/users/login", {
+        body: { name, email, password },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        maxBodyLength: Infinity,
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+    // localStorage.setItem(
+    //   "token",
+    //   JSON.stringify(
+    //     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGI0YTU4OWQ4NGQzODc4MzJlYjY0NiIsImlhdCI6MTY5OTQzMzA0OCwiZXhwIjoxNzAyMDI1MDQ4fQ.Lu5unc78OBVNhznt32TVXeLFQBHklt7RNX8PRvQBX9I"
+    //   )
+    // );
     // console.log({ name, password, email });
   }
 

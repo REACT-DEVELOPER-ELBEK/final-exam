@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
+    "@types/cors": "^2.8.16",
     "axios": "^1.6.0",
     "cors": "^2.8.5",
     "next": "14.0.1",
