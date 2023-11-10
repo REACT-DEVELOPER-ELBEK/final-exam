@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import navLogo from "../../../../public/nav.svg";
 import Image from "next/image";
 import "./Nav.scss";
@@ -9,6 +9,10 @@ import { getCookie } from "@/app/utils/cookies";
 
 const token = getCookie("user_token");
 const Nav = () => {
+  const [cartItems, setCartItems] = useState(0)
+useEffect(()=>{
+  setCartItems(JSON.parse(localStorage.getItem("cartProducts")).length)
+}, [])
   return (
     <>
       <nav>
@@ -26,6 +30,7 @@ const Nav = () => {
             </div>
             <div className="nav__actions">
               <Link href="/cart">
+                <p>{cartItems}</p>
                 <AiOutlineShoppingCart />
               </Link>
               <Link href="login">
