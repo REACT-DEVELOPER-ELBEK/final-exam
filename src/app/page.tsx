@@ -9,7 +9,9 @@ import TopDishes from "./routes/home/topDishes/TopDishes";
 import Purchase from "./routes/home/purchase/Purchase";
 import Comments from "./routes/home/comments/Comments";
 import HomeDiscount from "./routes/home/homeDiscount/HomeDiscount";
-
+import { getCookie } from "./utils/cookies";
+import SignUp from "./login/page";
+const token = getCookie("user_token");
 const Home = () => {
   return (
     <div className="home">

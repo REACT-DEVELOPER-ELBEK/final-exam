@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import navLogo from "../../../public/nav.svg";
 import Image from "next/image";
 import "./Login.scss";
@@ -8,7 +8,12 @@ import { BsPerson } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
 import { CiLock } from "react-icons/ci";
 import axios from "axios";
-import { setCookie } from "../utils/cookies";
+import { getCookie, setCookie } from "../utils/cookies";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Link from "next/link";
+
+const userToken = getCookie(!"user_token"?"":"")
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -16,17 +21,27 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
 
   async function signUp() {
+    const testa = null;
     try {
-      const res = await axios.post("https://api.escuelajs.co/api/v1/auth/login", {email, password})
+      const res = await axios.post(
+        "https://api.escuelajs.co/api/v1/auth/login",
+        { email, password }
+      );
       const data = res.data;
-       const token = data.access_token
-       setCookie("user_token", JSON.stringify(token))
-       console.log(token);
-       
+      const token = data.access_token;
+      const pt = test
+      
+      setCookie("user_token", JSON.stringify(token));
+      if (token) {
+        toast.success(`Welcome ${name}`, {
+          theme: "colored",
+        });
+      }
     } catch (err) {
       console.log(err);
     }
   }
+  
 
   return (
     <div className="sign__up">
@@ -70,7 +85,7 @@ const SignUp = () => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
-                <button onClick={signUp}>sign up</button>
+                <Link href={userToken?"/": ""} onClick={signUp}>sign up</Link>
               </div>
             </div>
           </div>
@@ -85,6 +100,7 @@ const SignUp = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

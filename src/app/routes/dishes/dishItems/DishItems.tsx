@@ -37,7 +37,7 @@ useEffect(()=>{
         {dishData?.map((item: mapFoods) => {
           return (
             <React.Fragment key={item.id}>
-              <Link href={`/productView/${item.id}`} className="top__dishes__card__item" key={item.id}>
+              <div className="top__dishes__card__item" key={item.id}>
                 <div className="product__to__cart">
                   <button
                     onClick={(): void =>
@@ -47,7 +47,7 @@ useEffect(()=>{
                     {isLiked ? <AiFillHeart /> : <AiOutlineHeart />}
                   </button>
                 </div>
-                <img src={item.image} alt="test-img" />
+                <img src={item.image} alt="test-img" title={item.description} />
                 <h5>{item.category}</h5>
                 <h2>{item.title.slice(0, 9)}...</h2>
                 <h3>
@@ -61,7 +61,7 @@ useEffect(()=>{
                   <h2>${item.price}</h2>
                   <button onClick={() => setCart([...cart, item])}>+</button>
                 </div>
-              </Link>
+              </div>
             </React.Fragment>
           );
         })}
