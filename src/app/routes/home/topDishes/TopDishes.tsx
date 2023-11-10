@@ -125,7 +125,7 @@ const TopDishes = () => {
           </div>
         </div>
       </div>
-      <Link href='/dishes'>
+      <Link href="/dishes">
         View All <AiOutlineArrowRight />
       </Link>
     </div>

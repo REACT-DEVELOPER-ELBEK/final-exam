@@ -5,9 +5,11 @@ import Image from "next/image";
 import './Nav.scss'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
 import Link from "next/link";
+import { getCookie } from "@/app/utils/cookies";
 
+const token = getCookie("user_token")
 const Nav = () => {
-  return (
+  return !token? <></>: (
     <nav>
       <div className="container">
         <div className="nav__wrapper">

@@ -8,34 +8,21 @@ import { BsPerson } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
 import { CiLock } from "react-icons/ci";
 import axios from "axios";
-import { log } from "console";
+import { setCookie } from "../utils/cookies";
 
 const SignUp = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
-  let body = {
-    name,
-    email,
-    password,
-  }
-  let config = {
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-  }
-  const requestOptions = {
-    body: body,
-    config: config
-  };
-
   async function signUp() {
     try {
-      const res = await axios.post(
-        "https://eatly-server.vercel.app/api/users", body, config);
-      const data = await res.data;
-      return data;
+      const res = await axios.post("https://api.escuelajs.co/api/v1/auth/login", {email, password})
+      const data = res.data;
+       const token = data.access_token
+       setCookie("user_token", JSON.stringify(token))
+       console.log(token);
+       
     } catch (err) {
       console.log(err);
     }
