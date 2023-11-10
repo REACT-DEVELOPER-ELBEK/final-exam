@@ -1,0 +1,125 @@
+.top__dishes {
+  margin-top: 212px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid #CBCBCB;
+  &__title {
+    display: flex;
+    justify-content: center;
+    h1 {
+      color: #323142;
+      font-feature-settings: "clig" off, "liga" off;
+      font-family: Poppins;
+      font-size: 45px;
+      font-weight: 600;
+      line-height: 25.558px;
+      span {
+        color: #6c5fbc;
+      }
+    }
+  }
+  &__cards {
+    margin-top: 76px;
+    display: flex;
+    gap: 70px;
+    justify-content: center;
+    gap: 31px;
+    .top__dishes__card__item {
+      border-radius: 34.581px;
+      border: 1.441px solid var(--colors-gray-gray-2, #f4f4f6);
+      background: var(--Pure-White, #fff);
+      box-shadow: 6.84842px 82.18102px 41.09051px 0px rgba(229, 229, 229, 0.7);
+      padding: 30px;
+      position: relative;
+      .product__to__cart {
+        button {
+          font-size: 22px;
+          color: #323142;
+          background: transparent;
+          position: absolute;
+          margin-left: 190px;
+          &:active {
+            transition: 0.3s;
+            transform: scale(0.7);
+          }
+        }
+      }
+      h5 {
+        color: #daa31a;
+        font-feature-settings: "clig" off, "liga" off;
+        font-family: Poppins;
+        font-size: 11.422px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        border-radius: 4.828px;
+        background: #f7edd0;
+        padding: 3px 7px;
+        max-width: 60px;
+      }
+      h2 {
+        color: var(--BLACK, #323142);
+        font-feature-settings: "clig" off, "liga" off;
+        font-family: Poppins;
+        font-size: 23.054px;
+        font-weight: 600;
+        line-height: 37.463px;
+      }
+      h3 {
+        color: var(--Grey, #8e97a6);
+        font-feature-settings: "clig" off, "liga" off;
+        font-family: Manrope;
+        font-size: 17.291px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 23.054px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        span {
+          color: #6c5fbc;
+          border-radius: 5px;
+          padding-top: 3px;
+        }
+      }
+      .card__action {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h2 {
+          color: var(--BLACK, #323142);
+          font-family: Manrope;
+          font-size: 25.936px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 40.345px;
+        }
+        button {
+          color: #fff;
+          background: #323142;
+          border-radius: 10px;
+          padding: 8px 15px;
+          font-size: 25px;
+          &:active {
+            transform: scale(0.87);
+            transition: 0.3s;
+          }
+        }
+      }
+    }
+  }
+  a {
+    color: var(--Dark-Grey, #acadb9);
+    font-feature-settings: "clig" off, "liga" off;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 45.184px; /* 225.921% */
+    letter-spacing: -0.1px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: flex-end;
+    margin-top: 80px;
+  }
+}

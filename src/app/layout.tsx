@@ -1,9 +1,9 @@
-
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/redux/provider";
-import Nav from './layout/header/Nav'
+import Nav from "./layout/header/Nav";
+import Footer from "./layout/footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,8 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-      <Nav />
+        <Nav />
         <Providers>{children}</Providers>
+        <Footer />
       </body>
     </html>
   );

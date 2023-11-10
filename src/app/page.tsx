@@ -4,7 +4,11 @@ import heroContent from "../../public/sign-up-right.png";
 import Image from "next/image";
 import HomeSellInfo from "./routes/home/homeSellInfo/HomeSellInfo";
 import DownloadApp from "./routes/home/downloadApp/DownloadApp";
-import HomePreviewEats from "./routes/home/homePreviewEats/HomePreviewEats";
+import HomeDishInfo from "./routes/home/homeDishInfo/HomeDishInfo";
+import TopDishes from "./routes/home/topDishes/TopDishes";
+import Purchase from "./routes/home/purchase/Purchase";
+import Comments from "./routes/home/comments/Comments";
+import HomeDiscount from "./routes/home/homeDiscount/HomeDiscount";
 
 const Home = () => {
   return (
@@ -33,7 +37,10 @@ const Home = () => {
         </div>
         <HomeSellInfo />
         <DownloadApp />
-        <HomePreviewEats />
+        <HomeDishInfo />
+        <TopDishes />
+        <Purchase />
+        <HomeDiscount />
       </div>
     </div>
   );

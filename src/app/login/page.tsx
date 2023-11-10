@@ -8,38 +8,37 @@ import { BsPerson } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
 import { CiLock } from "react-icons/ci";
 import axios from "axios";
+import { log } from "console";
 
 const SignUp = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
-  const method = {
-    body: { name, email, password },
+  let body = {
+    name,
+    email,
+    password,
+  }
+  let config = {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    redirect: "follow",
+  }
+  const requestOptions = {
+    body: body,
+    config: config
   };
 
-  function signUp() {
-    axios
-      .post("https://eatly-server.vercel.app/api/users/login", {
-        body: { name, email, password },
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        maxBodyLength: Infinity,
-      })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-    // localStorage.setItem(
-    //   "token",
-    //   JSON.stringify(
-    //     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGI0YTU4OWQ4NGQzODc4MzJlYjY0NiIsImlhdCI6MTY5OTQzMzA0OCwiZXhwIjoxNzAyMDI1MDQ4fQ.Lu5unc78OBVNhznt32TVXeLFQBHklt7RNX8PRvQBX9I"
-    //   )
-    // );
-    // console.log({ name, password, email });
+  async function signUp() {
+    try {
+      const res = await axios.post(
+        "https://eatly-server.vercel.app/api/users", body, config);
+      const data = await res.data;
+      return data;
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
