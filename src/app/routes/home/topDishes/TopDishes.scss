@@ -1,7 +1,7 @@
 .top__dishes {
   margin-top: 212px;
   padding-bottom: 60px;
-  border-bottom: 1px solid #CBCBCB;
+  border-bottom: 1px solid #cbcbcb;
   &__title {
     display: flex;
     justify-content: center;
@@ -30,6 +30,7 @@
       box-shadow: 6.84842px 82.18102px 41.09051px 0px rgba(229, 229, 229, 0.7);
       padding: 30px;
       position: relative;
+      max-width: 245px;
       .product__to__cart {
         button {
           font-size: 22px;
@@ -121,5 +122,45 @@
     gap: 20px;
     justify-content: flex-end;
     margin-top: 80px;
+  }
+}
+
+@media (max-width: 1115px) {
+  .top__dishes__cards {
+    .top__dishes__card__item {
+      img {
+        display: block;
+        margin: 0 auto;
+        height: auto;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 982px) {
+  .top__dishes__cards {
+    .top__dishes__card__item {
+      .product__to__cart{
+        button{
+          left: -20px;
+        }
+      }
+      h2 {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 948px){
+  .top__dishes__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    place-items: center;
+    .top__dishes__card__item{
+
+    }
   }
 }

@@ -7,6 +7,7 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
+  margin-top: 154px;
   .discount__content {
     display: flex;
     flex-direction: column;
@@ -67,6 +68,21 @@
     img{
         position: absolute;
         margin-left: -250px;
+    }
+  }
+}
+
+@media (max-width: 886px){
+  .discount{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &__content{
+      height: 300px;
+    }
+    &__image{
+      margin-left: 100px;
+      margin-top: -50px;
     }
   }
 }

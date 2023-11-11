@@ -9,17 +9,17 @@ import { getCookie } from "@/app/utils/cookies";
 
 const token = getCookie("user_token");
 const Nav = () => {
-  const [cartItems, setCartItems] = useState(0)
-useEffect(()=>{
-  setCartItems(JSON.parse(localStorage.getItem("cartProducts")).length)
-}, [])
+  const [cartItems, setCartItems] = useState(0);
+  useEffect(() => {
+    setCartItems(JSON.parse(localStorage.getItem("cartProducts")).length);
+  }, []);
   return (
     <>
       <nav>
         <div className="container">
           <div className="nav__wrapper">
             <div className="nav__main">
-              <Link href='/' className="nav__logo">
+              <Link href="/" className="nav__logo">
                 <Image src={navLogo} alt="" />
                 <p>eatly</p>
               </Link>
@@ -37,7 +37,9 @@ useEffect(()=>{
                 <button>Login</button>
               </Link>
               <Link href="sign-up" className="ewty">
-                <button className="signUp">Sign Up</button>
+                <button className="signUp" style={{ color: "#F9F9F9" }}>
+                  Sign Up
+                </button>
               </Link>
             </div>
           </div>

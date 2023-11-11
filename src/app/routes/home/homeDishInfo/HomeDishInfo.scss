@@ -2,6 +2,14 @@
   margin-top: 132px;
   display: flex;
   flex-direction: column;
+  &__img {
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  }
   .dish__info__content {
     display: flex;
     align-items: center;
@@ -26,7 +34,6 @@
       font-feature-settings: "clig" off, "liga" off;
       font-family: Manrope;
       font-size: 26.233px;
-      font-style: normal;
       font-weight: 400;
       line-height: 34.977px;
       display: flex;
@@ -37,5 +44,20 @@
   img {
     border-radius: 30px 30px 0px 0px;
     max-width: 1220px;
+  }
+}
+
+@media (max-width: 880px){
+  .dish__info{
+    &__content{
+      justify-content: space-between;
+      width: 100%;
+      h2{
+        font-size: 10px;
+      }
+      p{
+        font-size: 2px;
+      }
+    }
   }
 }

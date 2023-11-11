@@ -2,7 +2,7 @@
   background-image: url("../../../../../public/sell-info-bg.png");
   display: flex;
   justify-content: space-between;
-  padding: 54px 0;
+  padding: 54px 200px;
   .sell__info__item {
     display: flex;
     flex-direction: column;
@@ -28,6 +28,24 @@
       font-weight: 500;
       line-height: 21.6px;
       max-width: 264px;
+    }
+  }
+}
+
+@media (max-width: 1070px) {
+  .home__sell__info {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 810px) {
+  .home__sell__info {
+    flex-direction: column;
+    gap: 100px;
+    .sell__info__item{
+      &:nth-child(2) {
+        border: none;
+      }
     }
   }
 }

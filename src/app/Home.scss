@@ -6,6 +6,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        width: 100%;
         .home__info {
           display: flex;
           gap: 20px;
@@ -55,6 +56,30 @@
             background: #6c5fbc;
             max-width: 166px;
             margin-top: 53px;
+          }
+        }
+        .home__content{
+          img{
+            margin: 0 auto;
+            width: 100%;
+            height: auto;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1175px) {
+  .home{
+    .container{
+      .home__wrapper{
+        .home__hero{
+          .home__info{
+            h1{
+              font-size: 50px;
+            }
           }
         }
       }

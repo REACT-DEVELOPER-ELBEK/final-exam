@@ -30,6 +30,7 @@
         background: var(--Full-White, #fff);
         display: flex;
         max-width: 345px;
+        width: 100%;
         padding: 9px;
         justify-content: space-between;
         align-items: center;
@@ -104,55 +105,74 @@
       }
     }
   }
-  .purchase__items{
+  .purchase__items {
     margin-top: 45px;
     display: flex;
     flex-direction: column;
     gap: 22px;
     .purchase__item {
-        border-radius: 18.847px;
-        border: 1.571px solid var(--greyscale-200, #edf2f7);
-        padding: 25px;
-        .purchase__content__item {
-          display: flex;
-          align-items: center;
-          .purchase__item__content {
-            margin-left: 19px;
-            h2 {
-              color: var(--greyscale-900, #1a202c);
-              font-family: Manrope;
-              font-size: 18.847px;
-              font-weight: 800;
-              line-height: 150%;
-              letter-spacing: 0.628px;
-              text-transform: capitalize;
-            }
-            p {
-              color: var(--greyscale-500, #a0aec0);
-              font-family: Manrope;
-              font-size: 15.706px;
-              font-weight: 500;
-              line-height: 150%;
-              letter-spacing: 0.628px;
-            }
+      border-radius: 18.847px;
+      border: 1.571px solid var(--greyscale-200, #edf2f7);
+      padding: 25px;
+      .purchase__content__item {
+        display: flex;
+        align-items: center;
+        .purchase__item__content {
+          margin-left: 19px;
+          h2 {
+            color: var(--greyscale-900, #1a202c);
+            font-family: Manrope;
+            font-size: 18.847px;
+            font-weight: 800;
+            line-height: 150%;
+            letter-spacing: 0.628px;
+            text-transform: capitalize;
           }
-          .purchase__item__price {
-            margin-left: 106px;
-            h3 {
-              color: var(--greyscale-900, #1a202c);
-              text-align: right;
-              font-family: Manrope;
-              font-size: 21.988px;
-              font-style: normal;
-              font-weight: 800;
-              line-height: 150%;
-              letter-spacing: 0.314px;
-            }
+          p {
+            color: var(--greyscale-500, #a0aec0);
+            font-family: Manrope;
+            font-size: 15.706px;
+            font-weight: 500;
+            line-height: 150%;
+            letter-spacing: 0.628px;
           }
         }
-        img{
-            margin-top: 23px;
+        .purchase__item__price {
+          margin-left: 106px;
+          h3 {
+            color: var(--greyscale-900, #1a202c);
+            text-align: right;
+            font-family: Manrope;
+            font-size: 21.988px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: 150%;
+            letter-spacing: 0.314px;
+          }
         }
       }
+      img {
+        margin-top: 23px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .purchase {
+    flex-direction: column;
+    .purchase__items {
+      h1 {
+        text-align: center;
+      }
+      &__card__parent {
+        .purchase__items__card {
+          max-width: 800px;
+        }
+      }
+    }
+  }
+  .purchase__info{
+    margin-top: 50px;
   }
 }
