@@ -86,3 +86,27 @@
     }
   }
 }
+
+@media (max-width: 900px){
+  .home{
+    .container{
+      .home__wrapper{
+        .home__hero{
+          flex-direction: column;
+          text-align: center;
+          align-items: center;
+          justify-content: center;
+          .home__info{
+            button{
+              margin-left: 33%;
+            }
+          }
+          .home__content{
+            margin-top: 132px;
+          }
+        }
+      }
+    }
+  }
+}
+// 870

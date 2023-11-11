@@ -30,7 +30,7 @@ const Footer = () => {
               <Link href="facebook.com">
                 <BiLogoFacebook />
               </Link>
-              <Link href="twitter.com">
+              <Link href="/productView">
                 <AiOutlineTwitter />
               </Link>
             </div>

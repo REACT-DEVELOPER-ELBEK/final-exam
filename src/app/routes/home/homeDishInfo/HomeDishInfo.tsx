@@ -8,12 +8,13 @@ import dishPreview from "../../../../../public/home-chicken-king.png";
 const HomeDishInfo = () => {
   return (
     <div className="dish__info">
-      <div className="dish__info__img"><Image src={dishPreview} alt="chicken" /></div>
+      <div className="dish__info__img">
+        <Image src={dishPreview} alt="chicken" />
+      </div>
       <div className="dish__info__content">
         <h2>The Chicken King</h2>
         <p>
-          24min •{" "}
-            <AiFillStar />
+          24min • <AiFillStar />
           4.8
         </p>
         <Image src={saved} alt="saved-logo" />

@@ -70,6 +70,12 @@ nav {
           background-color: transparent;
         }
       }
+      .menu{
+        color: #282828;
+        font-size: 30px;
+        background: transparent;
+        display: none;
+      }
     }
   }
 }
@@ -80,4 +86,27 @@ nav {
 .ewty{
     background: #6C5FBC;
     color: #fff;
+}
+
+@media (max-width: 820px){
+  nav{
+    .container{
+      .nav__wrapper{
+        .menu{
+          display: block;
+        }
+        .nav__main{
+          .nav__links{
+            display: none;
+          }
+        }
+        .nav__actions{
+          display: none;
+        }
+      }
+    }
+  }
+}
+.active{
+  color: #6C5FBC;
 }

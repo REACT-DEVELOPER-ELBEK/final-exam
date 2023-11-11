@@ -141,8 +141,8 @@
 @media (max-width: 982px) {
   .top__dishes__cards {
     .top__dishes__card__item {
-      .product__to__cart{
-        button{
+      .product__to__cart {
+        button {
           left: -20px;
         }
       }
@@ -153,14 +153,39 @@
   }
 }
 
-@media (max-width: 948px){
+@media (max-width: 948px) {
   .top__dishes__cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     place-items: center;
-    .top__dishes__card__item{
+  }
+}
 
+@media (max-width: 1050px) {
+  .top__dishes__cards {
+    .top__dishes__card__item {
+      .product__to__cart {
+        button{
+          left: -5px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .top__dishes__cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    place-items: center;
+    .top__dishes__card__item {
+      .product__to__cart {
+        button{
+          left: -5px;
+        }
+      }
     }
   }
 }

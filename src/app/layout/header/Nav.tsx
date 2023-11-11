@@ -6,13 +6,12 @@ import "./Nav.scss";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Link from "next/link";
 import { getCookie } from "@/app/utils/cookies";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { active } from "@/types/isAtive.type";
 
 const token = getCookie("user_token");
 const Nav = () => {
-  const [cartItems, setCartItems] = useState(0);
-  useEffect(() => {
-    setCartItems(JSON.parse(localStorage.getItem("cartProducts")).length);
-  }, []);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <nav>
@@ -30,7 +29,7 @@ const Nav = () => {
             </div>
             <div className="nav__actions">
               <Link href="/cart">
-                <p>{cartItems}</p>
+                <p>0</p>
                 <AiOutlineShoppingCart />
               </Link>
               <Link href="login">
@@ -42,6 +41,14 @@ const Nav = () => {
                 </button>
               </Link>
             </div>
+            <button
+              className="menu"
+              onClick={(): void =>
+                isOpen ? setIsOpen(false) : setIsOpen(true)
+              }
+            >
+              {isOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
+            </button>
           </div>
         </div>
       </nav>
