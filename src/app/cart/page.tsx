@@ -1,15 +1,17 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import HomeDiscount from "../routes/home/homeDiscount/HomeDiscount";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/redux/store";
 import { fetchFoods } from "@/redux/slices/foodSlicer";
 import { mapFoods } from "@/types/foodMap.type";
 import "./Cart.scss";
+import { totalPriceState } from "@/types/totalPrice.type";
 
 const Cart = () => {
-  const cartData = JSON.parse(localStorage.getItem("cartProducts"));
-  console.log(cartData);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  const cartData = JSON.parse(localStorage.getItem("cartProducts")|| "");
 
   return (
     <div className="cart">

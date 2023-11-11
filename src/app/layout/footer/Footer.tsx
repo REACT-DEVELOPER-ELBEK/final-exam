@@ -11,9 +11,7 @@ import { getCookie } from "@/app/utils/cookies";
 const token = getCookie("user_token");
 
 const Footer = () => {
-  return window.location.pathname == "/login" ? (
-    <></>
-  ) : (
+  return (
     <>
       <footer>
         <div className="container">
