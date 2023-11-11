@@ -2,7 +2,7 @@ import AtomicSpinner from "atomic-spinner";
 
 const Loading = () => {
   return (
-    <div style={{display: "grid", placeItems: "center"}}>
+    <div style={{ display: "grid", placeItems: "center" }}>
       <AtomicSpinner
         nucleusDistanceFromCenter={2}
         atomSize={400}

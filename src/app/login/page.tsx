@@ -13,15 +13,12 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
 
-const userToken = getCookie(!"user_token"?"":"")
-
 const SignUp = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
   async function signUp() {
-    const testa = null;
     try {
       const res = await axios.post(
         "https://api.escuelajs.co/api/v1/auth/login",
@@ -29,8 +26,7 @@ const SignUp = () => {
       );
       const data = res.data;
       const token = data.access_token;
-      const pt = test
-      
+
       setCookie("user_token", JSON.stringify(token));
       if (token) {
         toast.success(`Welcome ${name}`, {
@@ -41,7 +37,6 @@ const SignUp = () => {
       console.log(err);
     }
   }
-  
 
   return (
     <div className="sign__up">
@@ -85,7 +80,9 @@ const SignUp = () => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
-                <Link href={userToken?"/": ""} onClick={signUp}>sign up</Link>
+                <Link href='#' onClick={signUp}>
+                  sign up
+                </Link>
               </div>
             </div>
           </div>

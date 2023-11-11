@@ -12,11 +12,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const DishItems = () => {
-  const router = useRouter()
-useEffect(()=>{
-  console.log(window.location.pathname);
-
-}, [router])  
 
   const dispatch = useDispatch<AppDispatch>();
   const dishData = useSelector((state: RootState) => state.foods.data);
@@ -26,8 +21,13 @@ useEffect(()=>{
   }, []);
 
   const [isLiked, setIsLiked] = useState(false);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState<state[]>([]);
   localStorage.setItem("cartProducts", JSON.stringify(cart));
+
+  interface state{
+    cart: any,
+    item:any
+  }
 
   return loading ? (
     <Loading />
@@ -59,7 +59,7 @@ useEffect(()=>{
                 </h3>
                 <div className="card__action">
                   <h2>${item.price}</h2>
-                  <button onClick={():void => setCart([...cart, item])}>+</button>
+                  <button onClick={() => setCart([...cart, item])}>+</button>
                 </div>
               </div>
             </React.Fragment>
