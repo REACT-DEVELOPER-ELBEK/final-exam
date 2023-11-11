@@ -37,7 +37,7 @@ useEffect(()=>{
         {dishData?.map((item: mapFoods) => {
           return (
             <React.Fragment key={item.id}>
-              <Link href={`/product-view/${item.id}`} className="top__dishes__card__item" key={item.id}>
+              <div className="top__dishes__card__item" key={item.id}>
                 <div className="product__to__cart">
                   <button
                     onClick={(): void =>
@@ -49,7 +49,7 @@ useEffect(()=>{
                 </div>
                 <img src={item.image} alt="test-img" title={item.description} />
                 <h5>{item.category}</h5>
-                <h2>{item.title.slice(0, 9)}...</h2>
+                <Link href={`/product-view/${item.id}`}>{item.title.slice(0, 9)}...</Link>
                 <h3>
                   {item.rating.count} •{" "}
                   <span>
@@ -59,9 +59,9 @@ useEffect(()=>{
                 </h3>
                 <div className="card__action">
                   <h2>${item.price}</h2>
-                  <button onClick={() => setCart([...cart, item])}>+</button>
+                  <button onClick={():void => setCart([...cart, item])}>+</button>
                 </div>
-              </Link>
+              </div>
             </React.Fragment>
           );
         })}

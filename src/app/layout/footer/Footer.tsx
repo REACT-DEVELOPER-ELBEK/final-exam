@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import "./Footer.scss";
 import footerLogo from "../../../../public/nav.svg";
@@ -10,34 +11,38 @@ import { getCookie } from "@/app/utils/cookies";
 const token = getCookie("user_token");
 
 const Footer = () => {
-  return (
-    <footer>
-      <div className="container">
-        <div className="footer__wrapper">
-          <div className="footer__top">
-            <Image src={footerLogo} alt="" />
-            <p>eatly</p>
-          </div>
-          <div className="footer__bottom">
-            <h2>© 2023 EATLY All Rights Reserved.</h2>
-            <div className="footer__bottom__medias">
-              <Link href="instagram.com">
-                <AiOutlineInstagram />
-              </Link>
-              <Link href="linkedin.com">
-                <BiLogoLinkedin />
-              </Link>
-              <Link href="facebook.com">
-                <BiLogoFacebook />
-              </Link>
-              <Link href="/productView">
-                <AiOutlineTwitter />
-              </Link>
+  return window.location.pathname == "/login" ? (
+    <></>
+  ) : (
+    <>
+      <footer>
+        <div className="container">
+          <div className="footer__wrapper">
+            <div className="footer__top">
+              <Image src={footerLogo} alt="" />
+              <p>eatly</p>
+            </div>
+            <div className="footer__bottom">
+              <h2>© 2023 EATLY All Rights Reserved.</h2>
+              <div className="footer__bottom__medias">
+                <Link href="instagram.com">
+                  <AiOutlineInstagram />
+                </Link>
+                <Link href="linkedin.com">
+                  <BiLogoLinkedin />
+                </Link>
+                <Link href="facebook.com">
+                  <BiLogoFacebook />
+                </Link>
+                <Link href="/productView">
+                  <AiOutlineTwitter />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 };
 

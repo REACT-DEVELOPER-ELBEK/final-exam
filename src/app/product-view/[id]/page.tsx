@@ -17,13 +17,11 @@ const productView = ({ params: { id } }) => {
   return (
     <div className="product">
       <div className="container">
-        {data.map((item: mapFoods) => {
+        {data?.map((item:mapFoods) => {
             return (
               <div className="product__wrapper" key={item.id}>
                 <div className="product__img">
-                  {
-                    <img src={} alt="" key={item.id} />
-                  }
+                  <img src={item.image} alt="" />
                 </div>
               </div>
             )

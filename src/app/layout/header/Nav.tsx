@@ -12,7 +12,9 @@ import { active } from "@/types/isAtive.type";
 const token = getCookie("user_token");
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
-  return (
+  return window.location.pathname == "/login" ? (
+    <></>
+  ) : (
     <>
       <nav>
         <div className="container">
