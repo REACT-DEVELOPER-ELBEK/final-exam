@@ -17,8 +17,24 @@ const Footer = () => {
         <div className="container">
           <div className="footer__wrapper">
             <div className="footer__top">
+              <Link href='/' className="footer__top__items">
               <Image src={footerLogo} alt="" />
               <p>eatly</p>
+              </Link>
+              <div className="footer__top__medias">
+                <Link href="instagram.com">
+                  <AiOutlineInstagram />
+                </Link>
+                <Link href="linkedin.com">
+                  <BiLogoLinkedin />
+                </Link>
+                <Link href="facebook.com">
+                  <BiLogoFacebook />
+                </Link>
+                <Link href="/productView">
+                  <AiOutlineTwitter />
+                </Link>
+              </div>
             </div>
             <div className="footer__bottom">
               <h2>© 2023 EATLY All Rights Reserved.</h2>

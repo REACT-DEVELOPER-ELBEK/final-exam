@@ -24,7 +24,7 @@ const Nav = () => {
               </Link>
               <div className="nav__links">
                 <Link href="/">Home</Link>
-                <Link href="dishes">Dishes</Link>
+                <Link href="/dishes">Dishes</Link>
               </div>
             </div>
             <div className="nav__actions">
@@ -32,10 +32,10 @@ const Nav = () => {
                 <p>0</p>
                 <AiOutlineShoppingCart />
               </Link>
-              <Link href="login">
+              <Link href="/login">
                 <button>Login</button>
               </Link>
-              <Link href="sign-up" className="ewty">
+              <Link href="/sign-up" className="ewty">
                 <button className="signUp" style={{ color: "#F9F9F9" }}>
                   Sign Up
                 </button>

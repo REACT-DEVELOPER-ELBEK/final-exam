@@ -14,6 +14,7 @@ const productView: React.FC<paramState> = ({ params: { id } }) => {
       .catch((error) => console.log(error));
   }, [id]);
   const data = [product];
+  
 
   return (
     <div className="product">
