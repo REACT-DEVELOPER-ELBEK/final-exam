@@ -7,39 +7,71 @@ import signUpRight from "../../../public/sign-up-right.png";
 import { BsPerson } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
 import { CiLock } from "react-icons/ci";
+import { AiOutlineLoading } from "react-icons/ai";
 import axios from "axios";
 import { getCookie, setCookie } from "../utils/cookies";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import RootLayout from "../layout";
+import Head from "next/head";
 
 const SignUp = () => {
+  const navigation = useRouter();
+
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
-  async function signUp() {
-    try {
-      const res = await axios.post(
-        "https://api.escuelajs.co/api/v1/auth/login",
-        { email, password }
-      );
-      const data = res.data;
-      const token = data.access_token;
+  const [isLoading, setIsLoading] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-      setCookie("user_token", JSON.stringify(token));
-      if (token) {
-        toast.success(`Welcome ${name}`, {
+  async function signUp() {
+    if (password.length >= 8) {
+      try {
+        setIsLoading(true);
+        let response = await axios.post(
+          "https://api.escuelajs.co/api/v1/auth/login",
+          {
+            email,
+            password,
+          }
+        );
+        if (response.data.access_token) {
+          let result = setCookie(
+            "access_token",
+            JSON.stringify(response.data.access_token)
+          );
+          toast.success(`Welcome ${name}`, {
+            theme: "colored",
+          });
+
+          setTimeout(() => {
+            navigation.push("/");
+          }, 800);
+          setIsLoading(false);
+          setIsAuthenticated(true);
+          useEffect(() => {
+            if (isAuthenticated) {
+              navigation.replace("/");
+            }
+          }, []);
+          return result;
+        }
+      } catch {
+        toast.error("Invalid username or password", {
           theme: "colored",
         });
+        setIsLoading(false);
       }
-    } catch (err) {
-      console.log(err);
     }
   }
 
   return (
     <div className="sign__up">
+      <Head>
+        <title>Login</title>
+      </Head>
       <div className="container">
         <div className="sign__up__wrapper">
           <div className="sign__up__left">
@@ -80,9 +112,15 @@ const SignUp = () => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
-                <Link href='#' onClick={signUp}>
-                  sign up
-                </Link>
+                <button onClick={() => signUp()}>
+                  {isLoading ? (
+                    <div className="button__loading">
+                      <AiOutlineLoading />
+                    </div>
+                  ) : (
+                    "sign up"
+                  )}
+                </button>
               </div>
             </div>
           </div>

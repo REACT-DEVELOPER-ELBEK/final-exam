@@ -56,6 +56,10 @@
       text-transform: capitalize;
       border-radius: 14.675px;
       background: #6c5fbc;
+      &:hover {
+        transition: 0.3s;
+        box-shadow: -11px 11px 5px 1px rgba(34, 60, 80, 0.6);
+      }
     }
   }
 }

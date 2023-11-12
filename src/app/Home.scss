@@ -1,8 +1,8 @@
 .home {
-    padding: 80px 0;
+  padding: 80px 0;
   .container {
     .home__wrapper {
-      .home__hero{
+      .home__hero {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -56,10 +56,14 @@
             background: #6c5fbc;
             max-width: 166px;
             margin-top: 53px;
+            &:hover {
+              transition: 0.3s;
+              box-shadow: -11px 11px 5px 1px rgba(34, 60, 80, 0.6);
+            }
           }
         }
-        .home__content{
-          img{
+        .home__content {
+          img {
             margin: 0 auto;
             width: 100%;
             height: auto;
@@ -72,12 +76,12 @@
 }
 
 @media (max-width: 1175px) {
-  .home{
-    .container{
-      .home__wrapper{
-        .home__hero{
-          .home__info{
-            h1{
+  .home {
+    .container {
+      .home__wrapper {
+        .home__hero {
+          .home__info {
+            h1 {
               font-size: 50px;
             }
           }
@@ -87,21 +91,21 @@
   }
 }
 
-@media (max-width: 900px){
-  .home{
-    .container{
-      .home__wrapper{
-        .home__hero{
+@media (max-width: 900px) {
+  .home {
+    .container {
+      .home__wrapper {
+        .home__hero {
           flex-direction: column;
           text-align: center;
           align-items: center;
           justify-content: center;
-          .home__info{
-            button{
+          .home__info {
+            button {
               margin-left: 33%;
             }
           }
-          .home__content{
+          .home__content {
             margin-top: 132px;
           }
         }

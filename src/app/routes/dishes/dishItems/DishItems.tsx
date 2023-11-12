@@ -10,19 +10,19 @@ import { mapFoods } from "../../../../types/foodMap.type";
 import { AiFillHeart, AiFillStar, AiOutlineHeart } from "react-icons/ai";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Pagination from "../pagination/Pagination";
 
 const DishItems = () => {
-
   const dispatch = useDispatch<AppDispatch>();
   const dishData = useSelector((state: RootState) => state.foods.data);
   const loading = useSelector((state: RootState) => state.foods.loading);
   useEffect(() => {
     dispatch(fetchFoods());
   }, []);
-  
-    interface state{
-    cart: any,
-    item:any
+
+  interface state {
+    cart: any;
+    item: any;
   }
 
   const [isLiked, setIsLiked] = useState(false);
@@ -31,7 +31,7 @@ const DishItems = () => {
     try {
       localStorage.setItem("cartProducts", JSON.stringify(cart));
     } catch (error) {
-      console.error('Error updating localStorage:', error);
+      console.error("Error updating localStorage:", error);
     }
   }, [cart]);
 
@@ -55,7 +55,9 @@ const DishItems = () => {
                 </div>
                 <img src={item.image} alt="test-img" title={item.description} />
                 <h5>{item.category}</h5>
-                <Link href={`/product-view/${item.id}`}>{item.title.slice(0, 9)}...</Link>
+                <Link href={`/product-view/${item.id}`}>
+                  {item.title.slice(0, 9)}...
+                </Link>
                 <h3>
                   {item.rating.count} •{" "}
                   <span>
@@ -65,12 +67,15 @@ const DishItems = () => {
                 </h3>
                 <div className="card__action">
                   <h2>${item.price}</h2>
-                  <button onClick={() => setCart(()=>[...cart, item])}>+</button>
+                  <button onClick={() => setCart(() => [...cart, item])}>
+                    +
+                  </button>
                 </div>
               </div>
             </React.Fragment>
           );
         })}
+        {/* <Pagination /> */}
       </div>
     </div>
   );

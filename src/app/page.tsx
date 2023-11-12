@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import "./Home.scss";
 import heroContent from "../../public/sign-up-right.png";
@@ -12,7 +13,9 @@ import HomeDiscount from "./routes/home/homeDiscount/HomeDiscount";
 import { getCookie } from "./utils/cookies";
 import SignUp from "./login/page";
 const token = getCookie("user_token");
+import { useRouter } from "next/navigation";
 const Home = () => {
+  const navigaton = useRouter()
   return (
     <div className="home">
       <div className="container">
@@ -30,7 +33,7 @@ const Home = () => {
                 disclaimer for more details and get paychecks up to two days
                 early. Get a <span>$20 bonus</span>.
               </p>
-              <button>Get Started</button>
+              <button onClick={()=>navigaton.push("/dishes")}>Get Started</button>
             </div>
             <div className="home__content">
               <Image src={heroContent} alt="" />
