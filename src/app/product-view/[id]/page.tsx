@@ -2,42 +2,35 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { mapFoods } from "@/types/foodMap.type";
-interface paramState {
-  params: {
-    id: string;
-  };
-}
+import { paramState } from "@/types/prams.type";
+import { AiFillStar } from "react-icons/ai";
+import "./ProductView.scss";
 
 const productView: React.FC<paramState> = ({ params: { id } }) => {
   const [product, setProduct] = useState([]);
   useEffect(() => {
-    axios(`https://api.escuelajs.co/api/v1/products/4`)
+    axios(`https://api.escuelajs.co/api/v1/products/${id}`)
       .then((response) => setProduct(response.data))
       .catch((error) => console.log(error));
   }, [id]);
   const data = [product];
-  console.log(data);
 
   return (
     <div className="product">
       <div className="container">
-        {data?.map((item: any) => {
-          return (
-            <div className="product__wrapper" key={item.id}>
-              <div className="product__img">
-                <img src={item.image} alt="" />
-                <h1>{item.title}</h1>
-                <h1>{item.cart}</h1>
-                <h1>{item.category}</h1>
-                <h1>{item.count}</h1>
-                <h1>{item.id}</h1>
-                <h1>{item.rating}</h1>
-                <h1>{item.rate}</h1>
-                <h1>{item.id}</h1>
-              </div>
+        {data?.map((item: mapFoods[] | any, index: number) => (
+          <div className="product__wrapper" key={index}>
+            <div className="product__image">
+              <img src={item.images} alt="" />
             </div>
-          );
-        })}
+            <div className="product__content">
+              <h1>{item.title}</h1>
+              <h2>{item.description}</h2>
+              <h3>${item.price}</h3>
+              <h4>{item.creationAt}</h4>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
