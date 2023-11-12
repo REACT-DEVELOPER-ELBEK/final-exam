@@ -19,15 +19,21 @@ const DishItems = () => {
   useEffect(() => {
     dispatch(fetchFoods());
   }, []);
-
-  const [isLiked, setIsLiked] = useState(false);
-  const [cart, setCart] = useState<state[]>([]);
-  localStorage.setItem("cartProducts", JSON.stringify(cart));
-
-  interface state{
+  
+    interface state{
     cart: any,
     item:any
   }
+
+  const [isLiked, setIsLiked] = useState(false);
+  const [cart, setCart] = useState<state[]>([]);
+  useEffect(() => {
+    try {
+      localStorage.setItem("cartProducts", JSON.stringify(cart));
+    } catch (error) {
+      console.error('Error updating localStorage:', error);
+    }
+  }, [cart]);
 
   return loading ? (
     <Loading />
@@ -59,7 +65,7 @@ const DishItems = () => {
                 </h3>
                 <div className="card__action">
                   <h2>${item.price}</h2>
-                  <button onClick={() => setCart([...cart, item])}>+</button>
+                  <button onClick={() => setCart(()=>[...cart, item])}>+</button>
                 </div>
               </div>
             </React.Fragment>
