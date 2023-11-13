@@ -8,6 +8,7 @@ import { mapFoods } from "@/types/foodMap.type";
 import "./Cart.scss";
 import { totalPriceState } from "@/types/totalPrice.type";
 import EmptyCart from "../routes/emptyCart/EmptyCart";
+import Link from "next/link";
 
 const Cart = () => {
   const [totalPrice, setTotalPrice] = useState<number>(0);
@@ -35,7 +36,7 @@ const Cart = () => {
                   <img src={item.image} alt={item.description} />
                   <div className="product__info__content">
                     <h2>{item.title.slice(0, 25)}...</h2>
-                    <p>{item.price}</p>
+                    <p>${item.price}</p>
                   </div>
                 </div>
                 <div className="cart__item__actions">
@@ -45,7 +46,7 @@ const Cart = () => {
                     <button>+</button>
                   </div>
                   <div className="cart__item__actions__total">
-                    <h3>$19.99</h3>
+                    <h3>${item.price}</h3>
                   </div>
                 </div>
               </div>
@@ -65,7 +66,7 @@ const Cart = () => {
             <h2>Total</h2>
             <p>${totalPrice + 3.59}</p>
           </div>
-          <button>Review Payment</button>
+          <Link href='payme.uz'>Review Payment</Link>
         </div>
         <HomeDiscount />
       </div>

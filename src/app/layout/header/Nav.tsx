@@ -14,9 +14,7 @@ import { usePathname } from "next/navigation";
 
 const token = getCookie("user_token");
 const Nav = () => {
-  const params = usePathname()
-  console.log(params);
-  
+  const params = usePathname()  
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   return params=='/login'?<></>: (
@@ -48,7 +46,7 @@ const Nav = () => {
               <Link href="/login">
                 <button>Login</button>
               </Link>
-              <Link href="/sign-up" className="ewty">
+              <Link href="/login" className="ewty">
                 <button className="signUp" style={{ color: "#F9F9F9" }}>
                   Sign Up
                 </button>

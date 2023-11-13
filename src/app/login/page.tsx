@@ -46,9 +46,7 @@ const SignUp = () => {
             theme: "colored",
           });
 
-          setTimeout(() => {
             navigation.push("/");
-          }, 800);
           setIsLoading(false);
           setIsAuthenticated(true);
           useEffect(() => {
@@ -60,8 +58,8 @@ const SignUp = () => {
         }
       } catch {
         toast.error("Invalid username or password", {
-          theme: "colored",
-        });
+          theme: "colored"
+        })
         setIsLoading(false);
       }
     }

@@ -23,6 +23,7 @@
           img {
             max-width: 100px;
             height: 100px;
+            width: 100px;
             object-fit: cover;
           }
           &__content {
@@ -125,7 +126,7 @@
           letter-spacing: -0.5px;
         }
       }
-      button {
+      a {
         color: var(--Cream---Background, #fff3eb);
         font-family: Poppins;
         font-size: 20px;
@@ -133,10 +134,93 @@
         font-weight: 600;
         letter-spacing: -0.2px;
         border-radius: 15.043px;
+        display: flex;
+        justify-content: center;
         background: var(--Purple, #6c5fbc);
         padding: 24px 0;
         margin-bottom: 144px;
         margin-top: 62px;
+      }
+    }
+  }
+}
+
+@media (max-width: 740px){
+  .cart{
+    .container{
+      .cart__wrapper{
+        .cart__item{
+          .product__info{
+            img{
+              height: 70px;
+              width: 70px;
+            }
+            &__content{
+              h2{
+                font-size: 19px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 610px){
+  .cart{
+    .container{
+      .cart__wrapper{
+        .cart__item{
+          .product__info{
+            img{
+              height: 60px;
+              width: 60px;
+            }
+            &__content{
+              h2{
+                font-size: 16px;
+              }
+            }
+          }
+          .cart__item__actions{
+            &__buttons{
+              button{
+                padding: 1px 5px;
+              font-size: 18px;
+              border: 1px solid #323142;
+              }
+              p{
+                font-size: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 420px){
+  .cart{
+    .container{
+      .cart__wrapper{
+        .cart__item{
+          .product__info{
+            img{
+              height: 60px;
+              width: 60px;
+            }
+            &__content{
+              h2{
+                font-size: 16px;
+              }
+              p{
+                font-size: 13px;
+              }
+            }
+          }
+        }
       }
     }
   }

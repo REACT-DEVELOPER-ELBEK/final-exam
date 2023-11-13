@@ -7,11 +7,13 @@ import { AiOutlineInstagram, AiOutlineTwitter } from "react-icons/ai";
 import { BiLogoLinkedin, BiLogoFacebook } from "react-icons/bi";
 import Link from "next/link";
 import { getCookie } from "@/app/utils/cookies";
+import { usePathname } from "next/navigation";
 
 const token = getCookie("user_token");
 
 const Footer = () => {
-  return (
+  const getPath = usePathname()
+  return getPath=='/login'?<></>:(
     <>
       <footer>
         <div className="container">
