@@ -12,7 +12,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Pagination from "../pagination/Pagination";
 
-const DishItems = () => {
+const DishItems: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const dishData = useSelector((state: RootState) => state.foods.data);
   const loading = useSelector((state: RootState) => state.foods.loading);

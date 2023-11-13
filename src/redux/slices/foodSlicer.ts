@@ -1,7 +1,8 @@
-"use client"
+"use client";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { stateType } from "@/types/foodSlicer.type";
+import { mapFoods } from "@/types/foodMap.type";
 
 const initialState: stateType = {
   data: [],
@@ -12,24 +13,25 @@ const initialState: stateType = {
   totalItems: 0,
 };
 
-export const fetchFoods = createAsyncThunk("foods/fetch", async (_, { getState }) => {
-  const { currentPage, itemsPerPage } = (getState() as { foods: stateType }).foods;
-  const response = await axios(`https://fakestoreapi.com/products?_page=${currentPage}&_limit=${itemsPerPage}`);
-  const data = await response.data;
-  return data;
-});
+export const fetchFoods = createAsyncThunk(
+  "foods/fetch",
+  async (searchTerm) => {
+    try {
+      const response = await axios(
+        `https://fakestoreapi.com/products`
+      );
+      const data = await response.data;
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
 
 const foodSlicer = createSlice({
   name: "foods",
   initialState,
-  reducers: {
-    setCurrentPage: (state, action) => {
-      state.currentPage = action.payload;
-    },
-    setItemsPerPage: (state, action) => {
-      state.itemsPerPage = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchFoods.pending, (state) => {
@@ -47,5 +49,4 @@ const foodSlicer = createSlice({
   },
 });
 
-export const { setCurrentPage, setItemsPerPage } = foodSlicer.actions;
 export default foodSlicer.reducer;

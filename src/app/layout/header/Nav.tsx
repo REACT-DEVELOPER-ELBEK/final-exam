@@ -1,18 +1,25 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import navLogo from "../../../../public/nav.svg";
 import Image from "next/image";
 import "./Nav.scss";
-import { AiOutlineShoppingCart } from "react-icons/ai";
 import Link from "next/link";
 import { getCookie } from "@/app/utils/cookies";
-import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import { active } from "@/types/isAtive.type";
+import {
+  AiOutlineClose,
+  AiOutlineMenu,
+  AiOutlineShoppingCart,
+} from "react-icons/ai";
+import { usePathname } from "next/navigation";
 
 const token = getCookie("user_token");
 const Nav = () => {
+  const params = usePathname()
+  console.log(params);
+  
   const [isOpen, setIsOpen] = useState(false);
-  return (
+  const pathname = usePathname();
+  return params=='/login'?<></>: (
     <>
       <nav>
         <div className="container">
@@ -23,13 +30,19 @@ const Nav = () => {
                 <p>eatly</p>
               </Link>
               <div className="nav__links">
-                <Link href="/">Home</Link>
-                <Link href="/dishes">Dishes</Link>
+                <Link href="/" className={pathname == "/" ? "active" : "none"}>
+                  Home
+                </Link>
+                <Link
+                  href="/dishes"
+                  className={pathname == "/dishes" ? "active" : "none"}
+                >
+                  Dishes
+                </Link>
               </div>
             </div>
             <div className="nav__actions">
               <Link href="/cart">
-                <p>0</p>
                 <AiOutlineShoppingCart />
               </Link>
               <Link href="/login">

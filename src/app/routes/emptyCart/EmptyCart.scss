@@ -1,0 +1,75 @@
+// <div className="empty">
+//       <div className="container">
+//         <div className="empty__wrapper">
+//           <div className="empty__logo">
+//             <h1>
+//               <GiShoppingCart />
+//             </h1>
+//           </div>
+//           <div className="empty__content">
+//             <h2>Your cart is currently empty</h2>
+//             <p>Before proceed to checkout, you have to add some products to your cart.</p>
+//             <p>You will find a lot of interesting products on our "Dishes" page.</p>
+//             <button><GiShoppingCart/> return to shop</button>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+
+.empty {
+  .container {
+    .empty__wrapper {
+      display: grid;
+      place-items: center;
+      text-align: center;
+      .empty__logo {
+        h1 {
+          font-size: 200px;
+        }
+      }
+      .empty__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        h2 {
+          color: #323142;
+          font-family: Poppins;
+          font-size: 45px;
+          font-weight: 600;
+          line-height: 120%;
+        }
+        p {
+          color: #686868;
+          font-family: Poppins;
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 160%;
+          letter-spacing: 0.2px;
+          &:first-child{
+            margin-top: 20px;
+          }
+        }
+        a {
+          border-radius: 15.564px;
+          background: #6c5fbc;
+          padding: 20px 50px;
+          color: #f3f5f6;
+          font-family: Poppins;
+          font-size: 17.788px;
+          font-weight: 600;
+          letter-spacing: 0.534px;
+          text-transform: uppercase;
+          margin-top: 30px;
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          &:hover{
+            transition: 0.5s;
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+}

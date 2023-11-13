@@ -7,6 +7,7 @@ import { fetchFoods } from "@/redux/slices/foodSlicer";
 import { mapFoods } from "@/types/foodMap.type";
 import "./Cart.scss";
 import { totalPriceState } from "@/types/totalPrice.type";
+import EmptyCart from "../routes/emptyCart/EmptyCart";
 
 const Cart = () => {
   const [totalPrice, setTotalPrice] = useState<number>(0);
@@ -21,7 +22,9 @@ const Cart = () => {
     setTotalPrice(total);
   }, [cartData]);
 
-  return (
+  return cartData.length == 0 ? (
+    <EmptyCart />
+  ) : (
     <div className="cart">
       <div className="container">
         <div className="cart__wrapper">
@@ -60,7 +63,7 @@ const Cart = () => {
           </div>
           <div className="total">
             <h2>Total</h2>
-            <p>${totalPrice+3.59}</p>
+            <p>${totalPrice + 3.59}</p>
           </div>
           <button>Review Payment</button>
         </div>
