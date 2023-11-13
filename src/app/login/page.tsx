@@ -46,20 +46,20 @@ const SignUp = () => {
             theme: "colored",
           });
 
-            navigation.push("/");
+          navigation.push("/");
           setIsLoading(false);
           setIsAuthenticated(true);
           useEffect(() => {
             if (isAuthenticated) {
-              navigation.replace("/");
+              navigation.push("/");
             }
           }, []);
           return result;
         }
       } catch {
         toast.error("Invalid username or password", {
-          theme: "colored"
-        })
+          theme: "colored",
+        });
         setIsLoading(false);
       }
     }

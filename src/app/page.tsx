@@ -15,7 +15,7 @@ import SignUp from "./login/page";
 const token = getCookie("user_token");
 import { useRouter } from "next/navigation";
 const Home = () => {
-  const navigaton = useRouter()
+  const navigation = useRouter()
   return (
     <div className="home">
       <div className="container">
@@ -33,7 +33,7 @@ const Home = () => {
                 disclaimer for more details and get paychecks up to two days
                 early. Get a <span>$20 bonus</span>.
               </p>
-              <button onClick={()=>navigaton.push("/dishes")}>Get Started</button>
+              <button onClick={()=>navigation.push("/dishes")}>Get Started</button>
             </div>
             <div className="home__content">
               <Image src={heroContent} alt="" />

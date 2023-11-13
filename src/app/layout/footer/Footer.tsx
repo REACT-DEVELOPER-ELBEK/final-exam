@@ -13,7 +13,7 @@ const token = getCookie("user_token");
 
 const Footer = () => {
   const getPath = usePathname()
-  return getPath=='/login'?<></>:(
+  return !token?<></>:(
     <>
       <footer>
         <div className="container">

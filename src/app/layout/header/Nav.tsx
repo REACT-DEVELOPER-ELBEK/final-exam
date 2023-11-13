@@ -10,14 +10,16 @@ import {
   AiOutlineMenu,
   AiOutlineShoppingCart,
 } from "react-icons/ai";
+import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
+import SignUp from "@/app/login/page";
 
 const token = getCookie("user_token");
 const Nav = () => {
-  const params = usePathname()  
+  const pathname = usePathname()
+  const navigate = useRouter()  
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname();
-  return params=='/login'?<></>: (
+  return !token?<></>: (
     <>
       <nav>
         <div className="container">
