@@ -9,9 +9,17 @@ import "./Cart.scss";
 import { totalPriceState } from "@/types/totalPrice.type";
 
 const Cart = () => {
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState<number>(0);
 
-  const cartData = JSON.parse(localStorage.getItem("cartProducts")|| "");
+  const cartData = JSON.parse(localStorage.getItem("cartProducts") || "");
+
+  useEffect(() => {
+    const total = cartData.reduce(
+      (acc: number, data: number): number => acc + data.price,
+      0
+    );
+    setTotalPrice(total);
+  }, [cartData]);
 
   return (
     <div className="cart">
@@ -44,7 +52,7 @@ const Cart = () => {
         <div className="total__count">
           <div className="subtotal">
             <h2>Subtotal</h2>
-            <p>$58.96</p>
+            <p>${totalPrice}</p>
           </div>
           <div className="subtotal">
             <h2>Delivery</h2>
@@ -52,7 +60,7 @@ const Cart = () => {
           </div>
           <div className="total">
             <h2>Total</h2>
-            <p>$62.55</p>
+            <p>${totalPrice+3.59}</p>
           </div>
           <button>Review Payment</button>
         </div>
