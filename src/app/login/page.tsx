@@ -15,9 +15,11 @@ import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 import RootLayout from "../layout";
 import Head from "next/head";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const SignUp = () => {
   const navigation = useRouter();
+  const [isShown, setIsShown] = useState(false);
 
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -50,7 +52,7 @@ const SignUp = () => {
           setIsLoading(false);
           setIsAuthenticated(true);
           setTimeout(() => {
-            window.location.reload()
+            window.location.reload();
           }, 1200);
           useEffect(() => {
             if (isAuthenticated) {
@@ -108,10 +110,17 @@ const SignUp = () => {
                     <CiLock />
                   </label>
                   <input
-                    type="password"
+                    type={isShown?"text":"password"}
                     placeholder="password"
                     onChange={(e) => setPassword(e.target.value)}
                   />
+                  <button
+                    onClick={() =>
+                      isShown ? setIsShown(false) : setIsShown(true)
+                    }
+                  >
+                    {isShown ? <FaEye /> : <FaEyeSlash />}
+                  </button>
                 </div>
                 <button onClick={() => signUp()}>
                   {isLoading ? (
