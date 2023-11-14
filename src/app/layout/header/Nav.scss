@@ -77,13 +77,23 @@ nav {
         button {
           color: #606060;
           font-family: Inter;
-          font-size: 17.829px;
-          font-style: normal;
+          font-size: 18px;
           font-weight: 700;
-          line-height: 26.743px; /* 150% */
+          line-height: 26.743px; 
           text-transform: capitalize;
-          padding: 18px 27px;
+          padding: 8px 20px;
           background-color: transparent;
+          background: red;
+          border-radius: 15px;
+          color: #fff;
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          p{
+            font-weight: 900;
+            font-size: 30px;
+            color: #fff;
+          }
         }
       }
       .menu{

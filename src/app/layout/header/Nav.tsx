@@ -4,7 +4,7 @@ import navLogo from "../../../../public/nav.svg";
 import Image from "next/image";
 import "./Nav.scss";
 import Link from "next/link";
-import { getCookie } from "@/app/utils/cookies";
+import { getCookie, removeCookie } from "@/app/utils/cookies";
 import {
   AiOutlineClose,
   AiOutlineMenu,
@@ -13,12 +13,25 @@ import {
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import SignUp from "@/app/login/page";
+import { CiLogout } from "react-icons/ci";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const token = getCookie("access_token");
 const Nav = () => {
   const pathname = usePathname()
   const navigate = useRouter()  
   const [isOpen, setIsOpen] = useState(false);
+
+  function logOut(){
+    removeCookie("access_token")
+    toast.info("You logged out", {
+      theme: "colored"
+    })
+    setTimeout(() => {
+      navigate.push("/login")
+    }, 1200);
+  }
   return pathname=="/login"?<></>: (
     <>
       <nav>
@@ -49,14 +62,9 @@ const Nav = () => {
               <Link href="/cart">
                 <AiOutlineShoppingCart />
               </Link>
-              <Link href="/login">
-                <button>Login</button>
-              </Link>
-              <Link href="/login" className="ewty">
-                <button className="signUp" style={{ color: "#F9F9F9" }}>
-                  Sign Up
-                </button>
-              </Link>
+              <button>
+                <button onClick={()=>logOut()}><p><CiLogout/></p>Logout</button>
+              </button>
             </div>
             <button
               className="menu"
@@ -68,6 +76,7 @@ const Nav = () => {
             </button>
           </div>
         </div>
+        <ToastContainer/>
       </nav>
     </>
   );
