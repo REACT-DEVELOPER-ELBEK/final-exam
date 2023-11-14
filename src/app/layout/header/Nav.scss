@@ -1,17 +1,42 @@
 nav {
-  padding: 30px 0;
-  border-bottom: 1px solid #cbcbcb;
+  position: relative;
+  .toggle{
+    height: 100vh;
+    padding: 30px 100px;
+    background: #f5f5f5;
+    z-index: 2;
+    position: absolute;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    left: 0;
+    top: 0;
+    display: none;
+    transition: 0.3s ease-in;
+    a{
+      font-size: 18px;
+    }
+  }
+  .none{
+    display: none;
+    transition: 0.3s ease-in;
+  }
   .container {
     .nav__wrapper {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: relative;
+      padding: 30px 0;
+  border-bottom: 1px solid #cbcbcb;
       .nav__main {
         display: flex;
         gap: 103px;
         align-items: center;
         .nav__logo {
           display: flex;
+          z-index: 1;
           gap: 11px;
           align-items: center;
           p {
@@ -81,12 +106,19 @@ nav {
 
 @media (max-width: 820px){
   nav{
+    .toggle{
+      display: flex;
+    }
     .container{
       .nav__wrapper{
         .menu{
           display: block;
+          z-index: 2;
         }
         .nav__main{
+          .nav__logo{
+            z-index: 1;
+          }
           .nav__links{
             display: none;
           }

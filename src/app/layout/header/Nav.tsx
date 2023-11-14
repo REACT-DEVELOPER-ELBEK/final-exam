@@ -22,6 +22,10 @@ const Nav = () => {
   return pathname=="/login"?<></>: (
     <>
       <nav>
+        <div className={isOpen?"toggle": "none"}>
+          <Link href='/'>Home</Link>
+          <Link href='/dishes'>Dishes</Link>
+        </div>
         <div className="container">
           <div className="nav__wrapper">
             <div className="nav__main">
@@ -30,12 +34,12 @@ const Nav = () => {
                 <p>eatly</p>
               </Link>
               <div className="nav__links">
-                <Link href="/" className={pathname == "/" ? "active" : "none"}>
+                <Link href="/" className={pathname == "/" ? "active" : ""}>
                   Home
                 </Link>
                 <Link
                   href="/dishes"
-                  className={pathname == "/dishes" ? "active" : "none"}
+                  className={pathname == "/dishes" ? "active" : ""}
                 >
                   Dishes
                 </Link>
