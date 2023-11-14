@@ -1,0 +1,42 @@
+.comments {
+  margin-top: 116px;
+  &__title {
+    display: flex;
+    justify-content: center;
+    h2 {
+      color: #323142;
+      font-feature-settings: "clig" off, "liga" off;
+      font-family: Poppins;
+      font-size: 45px;
+      font-weight: 600;
+      line-height: 25.558px;
+      span {
+        color: #6c5fbc;
+      }
+    }
+  }
+  &__items {
+    margin-top: 80px;
+    box-shadow: 4px 23px 21px 15px rgba(34, 60, 80, 0.2);
+    .comment__item {
+      padding: 38px 43px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      border-radius: 20px;
+    //   max-width: 560px;
+      p {
+        color: #969696;
+        text-align: justify;
+        font-family: Poppins;
+        font-size: 18px;
+        font-style: italic;
+        font-weight: 400;
+        line-height: 26.117px;
+        max-width: 442px;
+      }
+    }
+  }
+}

@@ -49,6 +49,9 @@ const SignUp = () => {
           navigation.push("/");
           setIsLoading(false);
           setIsAuthenticated(true);
+          setTimeout(() => {
+            window.location.reload()
+          }, 1200);
           useEffect(() => {
             if (isAuthenticated) {
               navigation.push("/");

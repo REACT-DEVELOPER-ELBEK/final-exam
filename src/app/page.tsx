@@ -12,11 +12,11 @@ import Comments from "./routes/home/comments/Comments";
 import HomeDiscount from "./routes/home/homeDiscount/HomeDiscount";
 import { getCookie } from "./utils/cookies";
 import SignUp from "./login/page";
-const token = getCookie("user_token");
+const token = getCookie("access_token");
 import { useRouter } from "next/navigation";
 const Home = () => {
   const navigation = useRouter()
-  return (
+  return !token?navigation.push("/login"):(
     <div className="home">
       <div className="container">
         <div className="home__wrapper">
@@ -45,6 +45,7 @@ const Home = () => {
         <HomeDishInfo />
         <TopDishes />
         <Purchase />
+        <Comments />
         <HomeDiscount />
       </div>
     </div>

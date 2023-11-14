@@ -9,11 +9,11 @@ import Link from "next/link";
 import { getCookie } from "@/app/utils/cookies";
 import { usePathname } from "next/navigation";
 
-const token = getCookie("user_token");
+const token = getCookie("access_token");
 
 const Footer = () => {
   const getPath = usePathname()
-  return !token?<></>:(
+  return getPath=="/login"?<></>:(
     <>
       <footer>
         <div className="container">

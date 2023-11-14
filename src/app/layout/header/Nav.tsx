@@ -14,12 +14,12 @@ import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import SignUp from "@/app/login/page";
 
-const token = getCookie("user_token");
+const token = getCookie("access_token");
 const Nav = () => {
   const pathname = usePathname()
   const navigate = useRouter()  
   const [isOpen, setIsOpen] = useState(false);
-  return !token?<></>: (
+  return pathname=="/login"?<></>: (
     <>
       <nav>
         <div className="container">
